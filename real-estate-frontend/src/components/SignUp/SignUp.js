@@ -10,10 +10,10 @@ const [data,setData]=useState({
 return <div className="main-box">
 <section className="information">
     <img src={PropertyLogo} alt="LOGO"/>
-    <h2>Create New Account</h2>
-    <form action="#" >
-        <input className="input-box" type="email" placeholder="Mail Id" required />
-       <input className="input-box" type="password" placeholder="password" required/>
+    <p className="signup-para">Create New Account</p>
+    <form action="#"className="form" >
+        <input className="input-box" type="email" placeholder="Mail Id" required /><br/>
+       <input className="input-box" type="password" placeholder="password" required/><br/>
        <input className="input-box" type="password" placeholder="Confirm password" required/>
     <button className="btn">Sign up</button>
     </form>
