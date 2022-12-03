@@ -1,17 +1,17 @@
 import './BasicInfo.css'
-import SideNavBar from './components/sidenavbar/SideNavBar'
-import Header from './components/headerpage/Header'
+import Menubar from '../Dashboard/menubar';
+import Userdetails from '../Dashboard/userdetails';
 import { useNavigate } from 'react-router-dom';
-function BasicInfo({ formData, setFormData ,IsTogle,setIsTogle}) {
+function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
     const navigate = useNavigate()
     return (
         <>
             <div className="container">
                 <div className="left">
-                    <SideNavBar />
+                    <Menubar />
                 </div>
                 <div className="right">
-                    <Header />
+                    <Userdetails />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -137,39 +137,39 @@ function BasicInfo({ formData, setFormData ,IsTogle,setIsTogle}) {
 
                             <div className="buttonBox">
                                 <button className="cancel" onClick={() => {
-                                    navigate('/home-page')
+                                    navigate('/dashboard')
                                     setFormData({
-                                        propertyType: "",
-                                        negotable: "",
+                                        propertyType: [],
+                                        negotiable: [],
                                         price: '',
-                                        ownership: "",
-                                        propertyAge: "",
-                                        propertyApproved: "",
+                                        ownership: [],
+                                        propertyAge: [],
+                                        propertyApproved: [],
                                         propertyDescription: "",
-                                        bankLoan: "",
+                                        bankLoan: [],
                                         length: '',
                                         breath: '',
                                         totalArea: '',
-                                        areaUnit: "",
-                                        noOfBHK: '',
-                                        noOfFloor: '',
-                                        attached: "",
-                                        western: "",
-                                        furnished: "",
-                                        carParking: "",
-                                        lift: "",
+                                        areaUnit: [],
+                                        noOfBHK: [],
+                                        noOfFloor: [],
+                                        attached: [],
+                                        western: [],
+                                        furnished: [],
+                                        carParking: [],
+                                        lift: [],
                                         electricity: "",
-                                        facing: "",
-                                        name: "",
+                                        facing: [],
+                                        name: [],
                                         mobile: '',
-                                        postedBy: "",
-                                        saleType: "",
-                                        featuredPackage: "",
-                                        ppdPackage: "",
+                                        postedBy: [],
+                                        saleType: [],
+                                        featuredPackage: [],
+                                        ppdPackage: [],
                                         email: "",
-                                        city: "",
+                                        city: [],
                                         area: "",
-                                        pincode: '',
+                                        pincode: [],
                                         address: "",
                                         landmark: "",
                                         latitude: "",
@@ -188,7 +188,11 @@ function BasicInfo({ formData, setFormData ,IsTogle,setIsTogle}) {
                                             return false;
                                         }
                                         else {
-                                            navigate('/property-detail')
+                                            setIsTogle({
+                                               ...isTogle,propertyDetails:true,BasicInfo:false
+
+                                            })
+                                            navigate('/add-property')
                                         }
                                     }}
                                 >
