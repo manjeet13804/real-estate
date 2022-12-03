@@ -9,7 +9,7 @@ import BasicInfo from './BasicInfo';
 function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
     const navigate = useNavigate()
     const token = localStorage.getItem("token");
-    if (token == undefined) {
+    if (token === undefined) {
         alert("login to continue")
         navigate('/')
     }

@@ -10,7 +10,7 @@ import PropertyDetails from './PropertyDetails';
 function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
     const token = localStorage.getItem("token");
     const navigate = useNavigate()
-    if (token == undefined) {
+    if (token === undefined) {
         alert("login to continue")
         navigate('/')
     }
@@ -142,7 +142,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                 </button>
                                 <button className=" save" onClick={(e) => {
                                     e.preventDefault();
-                                    if (formData.mobile == "") {
+                                    if (formData.mobile === "") {
                                         alert("Mobile is a mandatory field")
                                     }
                                     else {
