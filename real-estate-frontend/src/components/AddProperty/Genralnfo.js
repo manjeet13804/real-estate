@@ -147,7 +147,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                     }
                                     else {
                                         setIsTogle({
-                                                
+                                                ...isTogle,LocationInfo:true,GeneralInfo:false
                                         })
                                         navigate('/add-property')
                                     }
