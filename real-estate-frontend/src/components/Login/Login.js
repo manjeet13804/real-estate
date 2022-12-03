@@ -23,7 +23,7 @@ const Login = () => {
                 console.log(response.data.message);
                 if (response.data.message === "success") {
                     localStorage.setItem('token', response.data.token)
-                    navigate('/dashboard')
+                    navigate('/dashboard');
                 }
                 else {
                     alert(response.data.message)
