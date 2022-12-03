@@ -9,7 +9,7 @@ import GeneralInfo from './Genralnfo';
 function LocationInfo({ formData, setFormData }) {
     const addProperty = (e) => {
         e.preventDefault();
-        axios.post('https://hotproperty.herokuapp.com/asset/', formData,
+        axios.post('http://localhost:5000/api/property', formData,
             {
                 headers: {
                     Authorization: localStorage.getItem('token')
@@ -68,7 +68,7 @@ function LocationInfo({ formData, setFormData }) {
     const navigate = useNavigate()
 
     const token = localStorage.getItem("token");
-    if (token == undefined) {
+    if (token === undefined) {
         alert("login to continue")
         navigate('/')
     }
