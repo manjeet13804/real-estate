@@ -68,7 +68,8 @@ function Signup() {
                     })}
                     onChange={(e) =>
                         setSignDetails({ ...sigupDetails, password: e.target.value })
-                    }
+     
+                  }
                     value={sigupDetails.password}
                 /><br />
 
