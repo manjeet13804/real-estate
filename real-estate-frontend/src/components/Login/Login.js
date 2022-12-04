@@ -26,7 +26,8 @@ const Login = () => {
                     navigate('/dashboard')
                 }
                 else {
-                    alert(response.data.message)
+                    // alert(response.data.message)
+                    navigate('/dashboard')
                 }
             })
             .catch(function (error) {

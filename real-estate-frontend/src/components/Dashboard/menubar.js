@@ -21,7 +21,7 @@ const Menubar = () => {
             <div className="home">
               <RiHome3Line />
             </div>
-            <div className="propert">Property</div>
+            <div className="property">Property</div>
           </div>
 
           <div className="sideoption gray">
