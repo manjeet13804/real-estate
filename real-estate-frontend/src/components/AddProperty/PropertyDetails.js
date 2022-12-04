@@ -1,5 +1,5 @@
 import React from 'react'
-import './PropertyDetail.css'
+import './propertyDetail.css'
 import Menubar from '../Dashboard/menubar';
 import { useNavigate } from 'react-router-dom';
 import BasicInfo from './BasicInfo';

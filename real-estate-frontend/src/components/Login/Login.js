@@ -5,6 +5,7 @@ import PropertyLogo from "../../Images/real-estate.jpg"
 import axios from 'axios';
 
 
+
 const Login = () => {
 
     const navigate = useNavigate()
@@ -18,16 +19,35 @@ const Login = () => {
             password: password
         }
         localStorage.setItem('userId', DATA.email)
+        
         axios.post('http://localhost:5000/api/user/login', DATA)
+        
             .then(function (response) {
+                // console.log(DATA,response)
                 console.log(response.data.message);
-                if (response.data.message === "success") {
+
+                const res = response.data.message
+                console.log(res);
+                if (res === "Login successful") {
+                    // console.log("Hello")
                     localStorage.setItem('token', response.data.token)
-                    navigate('/dashboard')
+                    // console.log("Hello")
+                    // navigate('/dashboard')
                 }
                 else {
+ sameer/locationinfoupdatedsuccessfully
+                    alert(response.data.message)
+                    localStorage.setItem('token',"ESTATE " +  response.data.token)
+                    console.log(localStorage,localStorage.token)
+                    // headers: {
+                    //         Authorization: localStorage.getItem('token')
+                    //      }
+                    navigate('/dashboard')
+                    // console.log("Hello")
+
                     // alert(response.data.message)
                     navigate('/dashboard')
+
                 }
             })
             .catch(function (error) {
