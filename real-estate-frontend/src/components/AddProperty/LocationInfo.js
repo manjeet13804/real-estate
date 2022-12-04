@@ -1,12 +1,12 @@
 import React from 'react'
 import './LocationInfo.css'
 import Menubar from '../Dashboard/menubar';
-import Userdetails from '../Dashboard/userdetails';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import GeneralInfo from './Genralnfo';
+import Action from '../Dashboard/action';
 
-function LocationInfo({ formData, setFormData }) {
+function LocationInfo({ formData, setFormData,isTogle,setIsTogle }) {
     const addProperty = (e) => {
         e.preventDefault();
         axios.post('http://localhost:5000/api/property', formData,
@@ -56,11 +56,11 @@ function LocationInfo({ formData, setFormData }) {
                     longitude: ""
                 })
                 if (response.data.message === "success") {
-                    navigate('/home-page')
+                    navigate('/dashboard')
                 }
             })
             .catch(function (error) {
-                alert('error')
+                alert(error)
             });
     }
 
@@ -79,7 +79,7 @@ function LocationInfo({ formData, setFormData }) {
                     < Menubar/>
                 </div>
                 <div className="right">
-                    <Userdetails />
+                    <Action />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -115,14 +115,14 @@ function LocationInfo({ formData, setFormData }) {
                     <div className="formBox">
                         <form action="">
                             <div className="leftFormBox">
-                                <label for="Email">Email</label>
+                                <label htmlFor="Email">Email</label>
                                 <input type="text" id='Email' placeholder='Email'
                                     onChange={(e) => {
                                         setFormData({ ...formData, email: e.target.value });
                                     }}
                                     value={formData.email}
                                 />
-                                <label for='Area'>Area</label>
+                                <label htmlFor='Area'>Area</label>
                                 <input type="Area" id='Area' placeholder='Area'
                                     onChange={(e) => {
                                         setFormData({ ...formData, area: e.target.value });
@@ -130,14 +130,14 @@ function LocationInfo({ formData, setFormData }) {
                                     value={formData.area}
                                 />
 
-                                <label for='Address'>Address</label>
+                                <label htmlFor='Address'>Address</label>
                                 <input type="text" placeholder='Address'
                                     onChange={(e) => {
                                         setFormData({ ...formData, address: e.target.value });
                                     }}
                                     value={formData.address}
                                 />
-                                <label for='Latitude'>Latitude
+                                <label htmlFor='Latitude'>Latitude
                                 </label>
                                 <input type="text" id='Latitude' placeholder='Latitude'
                                     onChange={(e) => {
@@ -147,28 +147,28 @@ function LocationInfo({ formData, setFormData }) {
                                 />
                             </div>
                             <div className="rightFormBox">
-                                <label for='City'>City</label>
+                                <label htmlFor='City'>City</label>
                                 <input type="text" placeholder='City'
                                     onChange={(e) => {
                                         setFormData({ ...formData, city: e.target.value });
                                     }}
                                     value={formData.city}
                                 />
-                                <label for='Pincode'>Pincode</label>
+                                <label htmlFor='Pincode'>Pincode</label>
                                 <input type="number" placeholder='Pincode'
                                     onChange={(e) => {
                                         setFormData({ ...formData, pincode: e.target.value });
                                     }}
                                     value={formData.pincode}
                                 />
-                                <label for='Landmark'>Landmark</label>
+                                <label htmlFor='Landmark'>Landmark</label>
                                 <input type="text" placeholder='Landmark'
                                     onChange={(e) => {
                                         setFormData({ ...formData, landmark: e.target.value });
                                     }}
                                     value={formData.landmark}
                                 />
-                                <label for='Longitude'>Longitude</label>
+                                <label htmlFor='Longitude'>Longitude</label>
                                 <input type="text" placeholder='Longitude'
                                     onChange={(e) => {
                                         setFormData({ ...formData, longitude: e.target.value });
@@ -180,7 +180,14 @@ function LocationInfo({ formData, setFormData }) {
                             <div className="buttonBox">
                                 <button className="Previous" onClick={(e) => {
                                     e.preventDefault();
-                                    navigate(<GeneralInfo/>)
+                                    {
+                                        setIsTogle({
+                                            ...isTogle,GenralInfo:true,LocationInfo:false,
+
+                                         })
+                                        console.log(formData,isTogle)
+                                         navigate('/add-property')
+                                    }
                                 }}>
                                     Previous
                                 </button>

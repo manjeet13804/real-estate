@@ -8,7 +8,6 @@ import axios from "axios";
 
 
 
-
 const Serach=()=>{
     const [searchItem, setSearchItem] = useState("");
 
@@ -20,7 +19,7 @@ const Serach=()=>{
     return (
       <>
         <div className="seracharea">
-          <div class="searchbtn">
+          <div className="searchbtn">
             <input
               type="text"
               placeholder="Search ppd id"
@@ -34,7 +33,7 @@ const Serach=()=>{
               <BsSearch className="btncolor" />
             </button>
           </div>
-          <Link to="">
+          <Link to="/add-property">
             <button type="sumbit" className="addbtn">
               <BsPlus /> Add Property
             </button>

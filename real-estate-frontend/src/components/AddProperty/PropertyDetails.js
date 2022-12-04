@@ -1,9 +1,9 @@
 import React from 'react'
 import './PropertyDetail.css'
 import Menubar from '../Dashboard/menubar';
-import Userdetails from '../Dashboard/userdetails';
 import { useNavigate } from 'react-router-dom';
 import BasicInfo from './BasicInfo';
+import Action from '../Dashboard/action';
 
 
 function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
@@ -21,7 +21,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                         <Menubar />
                     </div>
                     <div className="right">
-                        <Userdetails />
+                        <Action />
                         <h4 className="addANewProperty">
                             Add new Property
                         </h4>
@@ -57,14 +57,14 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                         <div className="formBox">
                             <form action="">
                                 <div className="leftFormBox">
-                                    <label for="Length">Length</label>
+                                    <label htmlFor="Length">Length</label>
                                     <input type="number" placeholder='Example 1000'
                                         onChange={(e) => {
                                             setFormData({ ...formData, length: e.target.value });
                                         }}
                                         value={formData.length}
                                     />
-                                    <label for='Total Area'>Total Area</label>
+                                    <label htmlFor='Total Area'>Total Area</label>
 
                                     <input type="number" id='total area' placeholder='Example: 7500'
 
@@ -74,7 +74,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         value={formData.totalArea}
                                     />
 
-                                    <label for='Number of BHK'>No of BHK</label>
+                                    <label htmlFor='Number of BHK'>No of BHK</label>
                                     <select name="Number of BHK" id='Number of BHK'
                                         onChange={(e) => {
                                             setFormData({ ...formData, noOfBHK: e.target.value });
@@ -87,19 +87,20 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >6</option>
                                         <option >7</option>
                                     </select>
-                                    <label for='Attached'>Attached
+                                    <label htmlFor='Attached'>Attached
                                     </label>
                                     <select name="Attached" id='Attached'
                                         onChange={(e) => {
                                             setFormData({ ...formData, attached: e.target.value });
                                         }}
+
                                         value={formData.attached}
                                     >
                                         <option value="" disabled selected>Select Attached</option>
                                         <option >Yes</option>
                                         <option >No</option>
                                     </select>
-                                    <label for='Furnished'>Furnished
+                                    <label htmlFor='Furnished'>Furnished
                                     </label>
                                     <select name="Furnished" id='Furnished'
                                         onChange={(e) => {
@@ -111,7 +112,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >Yes</option>
                                         <option >No</option>
                                     </select>
-                                    <label for='Lift'>Lift
+                                    <label htmlFor='Lift'>Lift
                                     </label>
                                     <select name="Lift" id='Lift'
                                         onChange={(e) => {
@@ -123,7 +124,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >Yes</option>
                                         <option >No</option>
                                     </select>
-                                    <label for='Facing'>Facing
+                                    <label htmlFor='Facing'>Facing
                                     </label>
                                     <select name="Facing" id='Facing'
                                         onChange={(e) => {
@@ -143,14 +144,14 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                     </select>
                                 </div>
                                 <div className="rightFormBox">
-                                    <label for='Breadth'>Breadth</label>
+                                    <label htmlFor='Breadth'>Breadth</label>
                                     <input type="number" name="Breadth" id="Breadth" placeholder='Example: 1000'
                                         onChange={(e) => {
                                             setFormData({ ...formData, breath: e.target.value });
                                         }}
                                         value={formData.breath}
                                     />
-                                    <label for='Area Unit'>Area Unit</label>
+                                    <label htmlFor='Area Unit'>Area Unit</label>
                                     <select name="Area Unit" id='Area Unit'
                                         onChange={(e) => {
                                             setFormData({ ...formData, areaUnit: e.target.value });
@@ -161,7 +162,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >sq ft</option>
                                         <option >sq cm</option>
                                     </select>
-                                    <label for='No of Floors'>No of Floors</label>
+                                    <label htmlFor='No of Floors'>No of Floors</label>
                                     <select name="No of Floors" id='No of Floors'
                                         onClick={(e) => {
                                             setFormData({ ...formData, noOfFloor: e.target.value });
@@ -174,7 +175,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >3</option>
                                         <option >4</option>
                                     </select>
-                                    <label for='Western Toilet'>Western Toilet</label>
+                                    <label htmlFor='Western Toilet'>Western Toilet</label>
                                     <select name="Western Toilet" id='Western Toilet'
                                         onChange={(e) => {
                                             setFormData({ ...formData, western: e.target.value });
@@ -185,7 +186,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >Yes</option>
                                         <option >No</option>
                                     </select>
-                                    <label for='Car Parking'>Car Parking</label>
+                                    <label htmlFor='Car Parking'>Car Parking</label>
                                     <select name="Car Parking" id='Car Parking'
                                         onChange={(e) => {
                                             setFormData({ ...formData, carParking: e.target.value });
@@ -196,19 +197,26 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                         <option >Yes</option>
                                         <option >No</option>
                                     </select>
-                                    <label for='Electricity'>Electricity</label>
+                                    <label htmlFor='Electricity'>Electricity</label>
                                     <input type="text" placeholder='Example: 3 Phase'
                                         onChange={(e) => {
                                             setFormData({ ...formData, electricity: e.target.value });
                                         }}
                                         value={formData.electricity}
                                     />
-                                    <label for='space' style={{ visibility: 'hidden' }}>Space</label>
+                                    <label htmlFor='space' style={{ visibility: 'hidden' }}>Space</label>
                                     <input type="text" style={{ visibility: 'hidden' }} />
                                 </div>
 
                                 <div className="buttonBox1">
-                                    <button className="Previous" onClick={() => navigate(<BasicInfo/>)}>
+                                    <button className="Previous" onClick={() => {
+                                            setIsTogle({
+                                                ...isTogle,BasicInfo:true,propertyDetails:false,
+ 
+                                             })
+                                            console.log(formData,isTogle)
+                                             navigate('/add-property')
+                                        }}>
                                         Previous
                                     </button>
                                     <button className=" save" onClick={(e) => {
@@ -227,6 +235,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                                 ...isTogle,GenralInfo:true,propertyDetails:false,
  
                                              })
+                                            console.log(formData,isTogle)
                                              navigate('/add-property')
                                         }
 
