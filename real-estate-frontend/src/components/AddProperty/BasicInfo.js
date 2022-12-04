@@ -1,7 +1,7 @@
 import './BasicInfo.css'
 import Menubar from '../Dashboard/menubar';
-import Userdetails from '../Dashboard/userdetails';
 import { useNavigate } from 'react-router-dom';
+import Action from '../Dashboard/action';
 function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
     const navigate = useNavigate()
     return (
@@ -11,7 +11,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                     <Menubar />
                 </div>
                 <div className="right">
-                    <Userdetails />
+                    <Action />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -47,7 +47,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                     <div className="formBox">
                         <form action="">
                             <div className="leftFormBox">
-                                <label for="Property-Type">Property Type</label>
+                                <label htmlFor="Property-Type">Property Type</label>
                                 <select name="Property-Type" id="Property-Type" onChange={(e) => {
                                     setFormData({ ...formData, propertyType: e.target.value });
                                 }}
@@ -57,7 +57,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     <option >land</option>
                                     <option >Flat</option>
                                 </select>
-                                <label for='price'>Price</label>
+                                <label htmlFor='price'>Price</label>
 
                                 <input type="number" id='price' placeholder='Example: 10000'
                                     onChange={(e) => {
@@ -66,7 +66,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     value={formData.price}
                                 />
 
-                                <label for='Property Age'
+                                <label htmlFor='Property Age'
                                 >Property Age</label>
                                 <select name="Property Age" id='Property Age'
                                     onChange={(e) => {
@@ -78,7 +78,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     <option >Less than 5 years</option>
                                     <option >More than 5 years</option>
                                 </select>
-                                <label for='Property Description'>Property Description
+                                <label htmlFor='Property Description'>Property Description
                                 </label>
                                 <input type="text" id='Property Description'
                                     onChange={(e) => {
@@ -88,7 +88,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                 />
                             </div>
                             <div className="rightFormBox">
-                                <label for='Negotiable'>Negotiable</label>
+                                <label htmlFor='Negotiable'>Negotiable</label>
                                 <select name="Negotiable" id='Negotiable'
                                     onChange={(e) => {
                                         setFormData({ ...formData, negotable: e.target.value });
@@ -99,7 +99,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
-                                <label for='ownership'>Ownership</label>
+                                <label htmlFor='ownership'>Ownership</label>
                                 <select name="ownership" id='ownership'
                                     onChange={(e) => {
                                         setFormData({ ...formData, ownership: e.target.value });
@@ -110,7 +110,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     <option >Individual</option>
                                     <option >Joint</option>
                                 </select>
-                                <label for='Property Approved'>Property Approved</label>
+                                <label htmlFor='Property Approved'>Property Approved</label>
                                 <select name="Property Approved" id='Property Approved'
                                     onChange={(e) => {
                                         setFormData({ ...formData, propertyApproved: e.target.value });
@@ -121,7 +121,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
-                                <label for='Bank Loan'>Bank Loan</label>
+                                <label htmlFor='Bank Loan'>Bank Loan</label>
                                 <select name="Bank Loan" id='Bank Loan'
                                     onChange={(e) => {
                                         setFormData({ ...formData, bankLoan: e.target.value });
@@ -139,6 +139,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                 <button className="cancel" onClick={() => {
                                     navigate('/dashboard')
                                     setFormData({
+                                        propertyType:"",
                                         negotiable: "",
                                         price: '',
                                         ownership: "",
@@ -191,6 +192,7 @@ function BasicInfo({ formData, setFormData, isTogle, setIsTogle }) {
                                                ...isTogle,propertyDetails:true,BasicInfo:false
 
                                             })
+                                            console.log(formData,isTogle)
                                             navigate('/add-property')
                                         }
                                     }}

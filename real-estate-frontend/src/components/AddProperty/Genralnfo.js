@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './GeneralInfo.css'
-
+import {BsVectorPen} from "react-icons/bs"
 import { useNavigate } from 'react-router-dom';
 import Menubar from '../Dashboard/menubar';
-import Userdetails from '../Dashboard/userdetails';
 import PropertyDetails from './PropertyDetails';
+import Action from '../Dashboard/action';
 
 
 function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
@@ -22,7 +22,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                     < Menubar/>
                 </div>
                 <div className="right">
-                    < Userdetails/>
+                    < Action/>
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -58,14 +58,14 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                     <div className="formBox">
                         <form action="">
                             <div className="leftFormBox">
-                                <label for="Name">Name</label>
+                                <label htmlFor="Name">Name</label>
                                 <input type="text" placeholder='Owner'
                                     onChange={(e) => {
                                         setFormData({ ...formData, name: e.target.value });
                                     }}
                                     value={formData.name}
                                 />
-                                <label for='Posted By'>Posted By</label>
+                                <label htmlFor='Posted By'>Posted By</label>
 
                                 <input type="text" id='Posted By' placeholder='Posted By'
                                     onChange={(e) => {
@@ -74,7 +74,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                     value={formData.postedBy}
                                 />
 
-                                <label for='Featured Package'>Featured Package</label>
+                                <label htmlFor='Featured Package'>Featured Package</label>
                                 <select name="Featured Package" id='Featured Package'
                                     onChange={(e) => {
                                         setFormData({ ...formData, featuredPackage: e.target.value });
@@ -92,23 +92,23 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                     // setFile(e.target.files[0])
                                 }
                                 }
-                                    type="file" name="PostImage" id="file" class="inputfile" style={{ display: "none" }} />
+                                    type="file" name="PostImage" id="file" className="inputfile" style={{ display: "none" }} />
 
-                                <label className='buttonLabel' style={{ display: 'inline-block' }} for="file">
-                                    <img src="images/Vector.png" alt="Browse" />
+                                <label className='buttonLabel' style={{ display: 'inline-block' }} htmlFor="file">
+                                    <img src={BsVectorPen} alt="Browse" />
                                 </label>&nbsp;&nbsp;
                                 <p style={{ display: 'inline-block' }} >{fileName}</p>
 
                             </div>
                             <div className="rightFormBox">
-                                <label for='Mobile'>Mobile</label>
+                                <label htmlFor='Mobile'>Mobile</label>
                                 <input type="number" name="Mobile" id="Mobile" placeholder='Enter Mobile Number'
                                     onChange={(e) => {
                                         setFormData({ ...formData, mobile: e.target.value });
                                     }}
                                     value={formData.mobile}
                                 />
-                                <label for='Sale Type'>Sale Type</label>
+                                <label htmlFor='Sale Type'>Sale Type</label>
                                 <select name="Sale Type" id='Sale Type'
                                     onChange={(e) => {
                                         setFormData({ ...formData, saleType: e.target.value });
@@ -119,7 +119,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                     <option >Direct</option>
                                     <option >Auction</option>
                                 </select>
-                                <label for='PPD Package'>PPD Package</label>
+                                <label htmlFor='PPD Package'>PPD Package</label>
                                 <select name="PPD Package" id='PPD Package'
                                     onChange={(e) => {
                                         setFormData({ ...formData, ppdPackage: e.target.value });
@@ -132,12 +132,16 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                     <option >3</option>
                                     <option >4</option>
                                 </select>
-                                <label for='space' style={{ visibility: 'hidden' }}>Space</label>
+                                <label htmlFor='space' style={{ visibility: 'hidden' }}>Space</label>
                                 <input type="text" style={{ visibility: 'hidden' }} />
                             </div>
 
                             <div className="buttonBox1">
-                                <button className="Previous" onClick={() => navigate(<PropertyDetails/>)}>
+                                <button className="Previous" onClick={() =>{setIsTogle({
+                                                ...isTogle,PropertyDetails:true,GeneralInfo:false
+                                        })
+                                        console.log(formData,isTogle)
+                                        navigate('/add-property')}}>
                                     Previous
                                 </button>
                                 <button className=" save" onClick={(e) => {
@@ -149,6 +153,7 @@ function GeneralInfo({ formData, setFormData, isTogle, setIsTogle}) {
                                         setIsTogle({
                                                 ...isTogle,LocationInfo:true,GeneralInfo:false
                                         })
+                                        console.log(formData,isTogle)
                                         navigate('/add-property')
                                     }
                                 }}>
