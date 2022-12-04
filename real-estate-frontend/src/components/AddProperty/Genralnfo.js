@@ -3,7 +3,7 @@ import './GeneralInfo.css'
 import {BsVectorPen} from "react-icons/bs"
 import { useNavigate } from 'react-router-dom';
 import Menubar from '../Dashboard/menubar';
-import PropertyDetails from './PropertyDetails';
+// import PropertyDetails from './PropertyDetails';
 import Action from '../Dashboard/action';
 
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./search.css";
 import axios from "axios";
- import Userdetails from "./userdetails";
+import Userdetails from "./userdetails";
 
 
 
