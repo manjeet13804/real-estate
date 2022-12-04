@@ -35,6 +35,7 @@ const Login = () => {
                     // navigate('/dashboard')
                 }
                 else {
+ sameer/locationinfoupdatedsuccessfully
                     alert(response.data.message)
                     localStorage.setItem('token',"ESTATE " +  response.data.token)
                     console.log(localStorage,localStorage.token)
@@ -43,6 +44,10 @@ const Login = () => {
                     //      }
                     navigate('/dashboard')
                     // console.log("Hello")
+
+                    // alert(response.data.message)
+                    navigate('/dashboard')
+
                 }
             })
             .catch(function (error) {
