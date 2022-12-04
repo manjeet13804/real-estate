@@ -4,8 +4,8 @@ import { BiUser } from "react-icons/bi";
 
 import Logout from "./logout";
 const Action =()=>{
-    // const userId = localStorage.getItem("userId");
-    // const userName = userId.split("@")[0];
+    const userId = localStorage.getItem("userId");
+    const userName = userId.split("@")[0];
 
 
 
@@ -14,11 +14,11 @@ const Action =()=>{
 
         <>
         <div className="headercontainer">
-        <div className="userid">USER ID </div>
+        <div className="userid">USER ID:{userId} </div>
 
             <div className="dropdown">
               <BiUser />
-              {/* {userName} */}
+              {userName}
              
              <CgChevronDown />
               <div className="dropdown-content">
