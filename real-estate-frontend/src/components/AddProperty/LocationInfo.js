@@ -1,21 +1,28 @@
+/* eslint-disable no-lone-blocks */
 import React from 'react'
 import './LocationInfo.css'
 import Menubar from '../Dashboard/menubar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import GeneralInfo from './Genralnfo';
+// import GeneralInfo from './Genralnfo';
 import Action from '../Dashboard/action';
 
+
+
 function LocationInfo({ formData, setFormData,isTogle,setIsTogle }) {
+    const navigate = useNavigate()
     const addProperty = (e) => {
         e.preventDefault();
+
         axios.post('http://localhost:5000/api/property', formData,
             {
                 headers: {
-                    Authorization: localStorage.getItem('token')
+                    authorization: localStorage.getItem('token')
                 }
+              
             })
             .then(function (response) {
+                console.log(response)
                 console.log(response.data);
                 alert(response.data.message);
                 setFormData({
@@ -64,8 +71,6 @@ function LocationInfo({ formData, setFormData,isTogle,setIsTogle }) {
             });
     }
 
-
-    const navigate = useNavigate()
 
     const token = localStorage.getItem("token");
     if (token === undefined) {
