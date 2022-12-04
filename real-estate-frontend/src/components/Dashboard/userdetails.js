@@ -41,7 +41,7 @@ const Userdetails = ({ searchItem }) => {
     useEffect(() => {
       // eslint-disable-next-line no-lone-blocks
       {
-        axios.get("http://localhost:5000/api/property/", 
+        axios.get("http://localhost:5000/api/property", 
           {
             headers: {
               Authorization: localStorage.getItem("token")

@@ -38,7 +38,7 @@ table tbody {
 
 .fixed_header thead {
     color: #416899;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 10px;
 }
 
