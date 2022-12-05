@@ -1,11 +1,11 @@
 /* eslint-disable no-lone-blocks */
 import React from 'react'
 import './LocationInfo.css'
-import Menubar from '../Dashboard/menubar';
+
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-// import GeneralInfo from './Genralnfo';
-import Action from '../Dashboard/action';
+
+
 
 
 
@@ -80,11 +80,9 @@ function LocationInfo({ formData, setFormData,isTogle,setIsTogle }) {
     return (
         <>
             <div className="container">
-                <div className="left">
-                    < Menubar/>
-                </div>
+                
                 <div className="right">
-                    <Action />
+                   
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
