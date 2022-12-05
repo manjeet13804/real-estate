@@ -1,4 +1,7 @@
-import "./userdetails.css"
+import "./userdetails.css";
+
+
+
 
 import React,{useEffect,useState} from "react";
 import { useNavigate } from "react-router";
@@ -91,7 +94,7 @@ const Userdetails = ({ searchItem }) => {
                         <tr className="containerr">
                           <td className="data">{user.PPDId}</td>
                           <td className="image">
-                            <i class="fa-sharp fa-solid fa-images"></i>
+                            <i className="fa-sharp fa-solid fa-images"></i>
                           </td>
                           <td className="propertyls">{user.propertyType}</td>
                           <td className="mobile">{user.mobile}</td>
@@ -109,8 +112,8 @@ const Userdetails = ({ searchItem }) => {
                           <td className="days">{user.DaysLeft}</td>
                           <td className="action">
                             {" "}
-                            <i class="fa-solid fa-eye"></i>{" "}
-                            <i class="fa-solid fa-pen"> </i>
+                            <i className="fa-solid fa-eye"></i>{" "}
+                            <i className="fa-solid fa-pen"> </i>
                           </td>
                         </tr>
                       </div>
