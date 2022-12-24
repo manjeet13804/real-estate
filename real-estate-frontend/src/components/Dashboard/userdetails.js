@@ -24,11 +24,11 @@ const Userdetails = ({ searchItem }) => {
 
       axios
         .put(
-          `http://localhost:5000/api/property/${buttonArray[0]}`,
+          `https://real-estate-backend-1.onrender.com/api/property/${buttonArray[0]}`,
           updateContent,
           {
             headers: {
-              Authorization: localStorage.getItem("token"),
+              authorization: localStorage.getItem("token"),
             },
           }
         )
@@ -44,7 +44,7 @@ const Userdetails = ({ searchItem }) => {
     useEffect(() => {
       // eslint-disable-next-line no-lone-blocks
       {
-        axios.get("http://localhost:5000/api/property", 
+        axios.get("https://real-estate-backend-1.onrender.com/api/property", 
           {
             headers: {
               Authorization: localStorage.getItem("token")
