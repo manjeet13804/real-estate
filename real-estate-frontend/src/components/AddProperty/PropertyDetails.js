@@ -164,7 +164,7 @@ function PropertyDetails({ formData, setFormData ,isTogle,setIsTogle}) {
                                     </select>
                                     <label htmlFor='No of Floors'>No of Floors</label>
                                     <select name="No of Floors" id='No of Floors'
-                                        onClick={(e) => {
+                                        onChange={(e) => {
                                             setFormData({ ...formData, noOfFloor: e.target.value });
                                         }}
                                         value={formData.noOfFloor}
